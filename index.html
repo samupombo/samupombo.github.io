@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>¿Quieres ser mi novia?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: beige;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .button-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            position: absolute;
+        }
+
+        #noButton {
+            background-color: #ff5555;
+            color: #fff;
+        }
+
+        #noButton:hover {
+            background-color: #ff0000;
+        }
+
+        #siButton {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        #siButton:hover {
+            background-color: #45a049;
+        }
+
+        /* Establecer posición del botón NO a la izquierda del botón SI */
+        #noButton {
+            left: -140px; /* Ajusta esto para controlar la distancia horizontal entre los botones */
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Quieres ser mi novia?</h1>
+    <div class="button-container">
+        <button id="noButton" onclick="moveNoButton()">NO</button>
+        <button id="siButton" onclick="confirmChoice()">SI</button>
+    </div>
+
+    <script>
+        var noButton = document.getElementById("noButton");
+
+        function moveNoButton() {
+            // Limitar las coordenadas aleatorias dentro de la resolución 1024x768
+            var maxWidth = 1024 - 150;
+            var maxHeight = 768 - 50;
+
+            // Generar posiciones aleatorias dentro de los límites
+            var randomX = Math.random() * maxWidth;
+            var randomY = Math.random() * maxHeight;
+
+            // Establecer la nueva posición
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+        }
+
+        function confirmChoice() {
+            var respuesta = confirm("¿Estás segura?");
+            if (respuesta) {
+                window.location.href = "gracias.html"; // Redirigir a la página de agradecimiento
+            }
+        }
+    </script>
+</body>
+</html>
